@@ -1,3 +1,5 @@
+@extends('layouts.app')
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,6 +37,9 @@
            <!-- In the sidebar section, update the menu items -->
 <ul class="nav flex-column">
     <li class="nav-item">
+        <a href="/" class="nav-link {{ request()->is('admin/dashboard') ? 'active' : '' }}">
+            <i class="bi bi-speedometer2"></i> HOME
+        </a>
         <a href="/admin/dashboard" class="nav-link {{ request()->is('admin/dashboard') ? 'active' : '' }}">
             <i class="bi bi-speedometer2"></i> Dashboard
         </a>
@@ -81,3 +86,4 @@
     @stack('scripts')
 </body>
 </html>
+@endsection

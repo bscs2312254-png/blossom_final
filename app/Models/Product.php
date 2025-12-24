@@ -26,10 +26,22 @@ class Product extends Model
         'price' => 'decimal:2'
     ];
 
-    // Relationship with Category
+    // Relationship with Category - using unique name to avoid conflict with 'category' attribute
+    public function productCategory(): BelongsTo
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    // Alias for backward compatibility
     public function category(): BelongsTo
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    // Another alias
+    public function categoryRelation(): BelongsTo
+    {
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
     // Accessor for image URL

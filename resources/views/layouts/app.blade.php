@@ -122,7 +122,19 @@
             <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
             <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
             <li class="nav-item"><a href="/cart" class="nav-link">Cart</a></li>
-        </ul>
+
+            @auth
+        <li class="nav-item">
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="btn btn-danger nav-link" style="border:none; background:none;">
+                    Logout
+                </button>
+            </form>
+        </li>
+        @endauth
+    </ul>
+
     </div>
 
     <div class="d-flex align-items-center">
